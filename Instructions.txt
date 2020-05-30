@@ -1,0 +1,27 @@
+﻿PRE REQUISITES
+
+
+User should install OpenGL library and GNU compiler.
+To install OpenGL, run sudo apt-get install freeglut3-dev
+
+
+
+
+INSTRUCTIONS
+
+
+1. Navigate to the src directory
+2. In the terminal, type make
+3. Now, to run the game, type ./shootit
+
+
+GAME CONTROLS
+
+
+1. A/D -> to change the camera angle
+2. W/S -> to change the shot angle (default set is 45 degrees)
+3. J/K -> Increase or decrease the shot power respectively
+4. B -> Shoot the ball
+5. L -> Toggle the lights on the court
+6. H -> Toggle on/off the shooting angle marker
+7. Esc -> Quit
