@@ -55,13 +55,12 @@ int main(int argc , char **argv){
     
     /* Initialize everyting */
     init();
-    
+
     /* Call callback fucntions and start the clock */
     glutDisplayFunc(on_display);
     glutReshapeFunc(on_reshape);
     glutTimerFunc(30,on_timer_time,TIMER_TIME);
     glutKeyboardFunc(on_keyboard);
-    
     
     glClearColor(1,1,1,0);
     glEnable(GL_DEPTH_TEST);
@@ -118,7 +117,6 @@ static void on_display(void){
 
 /* Timer for throwing the ball */
 static void on_timer(int value){
-    
     if(value!=0){
         return;
     }
@@ -201,10 +199,12 @@ static void restart(){
 /* Keyboard actions*/
 static void on_keyboard(unsigned char key, int mouse_x, int mouse_y ){
     
+    // printf("Key pressed : %c\n", key)s;
 
     switch(key){
-        /* click space to shoot */
-        case 32:
+        /* click b/B to shoot */
+        case 'b':
+        case 'B':
             if(!animation_active && timeUp){
                 animation_active = 1;
                 glutTimerFunc(60,on_timer,TIMER_BALL);
@@ -214,6 +214,7 @@ static void on_keyboard(unsigned char key, int mouse_x, int mouse_y ){
         case 'w':
         case 'W':
             if(!animation_active){
+                // printf("Hit w\n");
                 angle+=3;
                 if(angle > 89){
                     angle = 89;

@@ -139,10 +139,16 @@ void drawNumbers(int number , float size){
 /* Function for drawing passed time from the beggining of the game */
 void drawTime(time_t start,float size){
     
-    time_t current_time = time(NULL);
+    time_t current_time = time(0);
     time_t passed_time = difftime(current_time,start);
+
     struct tm *info = localtime(&passed_time);
     
+    //Adjusting Local time per GMT
+    // India has +5:30 GMT
+    info->tm_hour -= 5;
+    info->tm_min -= 30;
+
     int counter = 90 - 60*info->tm_min - info->tm_sec;
     if(counter < 0){
         timeUp = 0;
